@@ -5,9 +5,9 @@
     $idUser=$_SESSION['myid'];
     if($_SESSION!=null){
         if($_SERVER["REQUEST_METHOD"] == "POST" and $idUser!=null){
-            $del=$_POST['eliminarCita'];
+            $del=$_POST['eliminarDoctores'];
 
-            $sql = 'call u157913818_PMDS.DelCita(?)';
+            $sql = 'call u157913818_PMDS.DelDoctor(?)';
             $stmt=$pdo->prepare($sql);
             $stmt->bindParam(1,$del,PDO::PARAM_INT);
             $stmt->execute();
@@ -46,17 +46,17 @@
     <main class="">
         <div id="Eliminar">
             <div class="center-align">
-                <h2 class="peligro">¿Estas seguro que quieres eliminar esta cita?</h2>
+                <h2 class="peligro">¿Estas seguro que quieres eliminar este Doctor?</h2>
             </div>
             <div class="row">
               <form class="col s12" method="POST">
                 <div class="row">
                   <div class="input-field col s12 offset-m4 m4">
                     <?php 
-                    if(isset($_GET['idCita'])){
+                    if(isset($_GET['idMedico'])){
                       echo '
-                      <input id="disabled" value="'.$_GET['idCita'].'" type="number" name="eliminarCita">
-                      <label for="disabled">Numero de Cliente</label>
+                      <input id="disabled" value="'.$_GET['idMedico'].'" type="number" name="eliminarDoctores">
+                      <label for="disabled">Numero de Doctor</label>
                       ';
                     }
                     else{
@@ -66,7 +66,7 @@
                   </div>
                 </div>
                 <button type="submit" class="btn colorRed" value="eliminar" name="Button">Eliminar</button>
-                <a class="btn" href="verCitas.php">Atras</a>
+                <a class="btn" href="verDoctores.php">Atras</a>
               </form>
             </div>
         </div>

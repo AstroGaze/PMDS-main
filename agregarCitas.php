@@ -60,7 +60,7 @@
         <main>
           <section class="container">
           
-              <h4 class = "center-align">MODIFICACION DE CITAS</h4>
+              <h4 class = "center-align">CREAR CITAS</h4>
               <br>
               <br>
                 </div>

@@ -18,3 +18,7 @@ main {
     color: red;
 }
 
+body > main > section > div > a {
+    margin-bottom: 20px;
+}
+
