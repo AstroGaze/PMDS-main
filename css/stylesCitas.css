@@ -1,0 +1,20 @@
+.color1 {background-color: #0074d1;}/* Color mas fuerte 10%*/
+.color2 {color: #009aca;}
+.color3 {color: #00d3d2;}/* 30 % */
+.color4 {color: #90ffe9;}
+.color5 {background-color: #eeffff;}/* Color mas suabe 60%*/ 
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  
+main {
+    flex: 1 0 auto;
+}
+
+.peligro{
+    color: red;
+}
+

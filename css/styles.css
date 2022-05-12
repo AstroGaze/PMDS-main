@@ -1,0 +1,65 @@
+.color1 {background-color: #0074d1;}/* Color mas fuerte 10%*/
+.color2 {color: #009aca;}
+.color3 {color: #00d3d2;}/* 30 % */
+.color4 {color: #90ffe9;}
+.color5 {background-color: #eeffff;}/* Color mas suabe 60%*/ 
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url("../img/background/background2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  
+main {
+    flex: 1 0 auto;
+}
+
+.img-icon {
+    height: 100px;
+    width: 100px;
+
+}
+.colorOpa{
+    width: 1000px;
+    padding: 15px 0 15px ;
+    background-color:#ffffffad;
+}
+
+.flexcontainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div .colorOpa {
+    margin-bottom: 50px;
+}
+
+p {
+    display: inline-block;
+    margin: 0 20px 0 20px;
+}
+
+.error{
+    font-size:23px; 
+    color:#cc0000; 
+    margin-top:10px;
+}
+
+/* .page-footer {
+    margin-top: 20px;
+    padding-top: 0px;
+}
+ */
+
+#iniciarSesionAdmin {
+    display: none;
+}
+
+.btnm {
+    margin-top: 10px;
+}

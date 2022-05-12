@@ -1,0 +1,97 @@
+
+.color1 {background-color: #0074d1;}/* Color mas fuerte 10%*/
+.color2 {color: #009aca;}
+.color3 {color: #00d3d2;}/* 30 % */
+.color4 {color: #90ffe9;}
+.color5 {color: #eeffff;}/* Color mas suabe 60%*/ 
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* padding: 1%; */
+}
+.miContenedor{
+    background-color: #eeffff;
+}
+/* Barra de navegacion */
+nav{
+    background-color: #0074d1;
+    padding: 0 10px 0 10px;
+}
+
+#buttonIni {
+    background-color: #00d3d2;
+}
+/* Inicio */
+.Inicio{
+    background-image: url("../img/background/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px 0 50px 0;
+    color: #eeffff;
+}
+
+h1{
+    font-size: 32px;
+}
+
+.Icon{
+    margin-right: 10px;
+}
+
+/* Abaut */
+h2{
+    font-size: 32px;
+    color: #0074d1;
+}
+
+h3{
+    font-size: 24px;
+    color: #009aca;
+}
+
+.colums{
+    column-count: 4;
+}
+
+/* Agendar Cita */
+
+#buttonAge {
+    background-color: #0074d1;
+}
+
+/* Contato */
+
+/* Footer */
+
+.footerColor {
+    background-color: #0074d1;
+}
+
+.leftSideForm {
+    /* margin: 10px; */
+    background-color:#ffffff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* .form {
+    width: 50%;
+} */
+
+.margin {
+    margin-top: 55px;
+}
+
+#espe {
+ margin-top: 100px;
+ margin-bottom: 100px;
+}
+
+#sobreNoso {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
