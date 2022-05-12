@@ -46,7 +46,7 @@
     <main class="">
         <div id="Eliminar">
             <div class="center-align">
-                <h2 class="h2">Editar cita</h2>
+                <h2 class="h2">Editar Doctores</h2>
             </div>
             <div class="row">
               <form class="col s12" method="POST">
@@ -106,10 +106,10 @@
                   </div>
                   <div class="input-field col s12 m6">
                         <?php 
-                            if(isset($_GET['medico'])){
+                            if(isset($_GET['especialidades'])){
                               echo '
-                                <input id="disabled" value="'.$_GET['medico'].'" type="number" name="medico">
-                                <label for="disabled">Medico</label>
+                                <input id="disabled" value="'.$_GET['especialidades'].'" type="number" name="especialidad">
+                                <label for="disabled">Especialidad</label>
                               ';
                             }
                             else{

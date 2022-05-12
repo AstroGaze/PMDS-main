@@ -64,7 +64,7 @@ if($idUser!=null){
 						      <td><?php echo htmlspecialchars($row['Usuario']); ?></td>
 						      <td><?php echo htmlspecialchars($row['Especialidades']); ?></td>
                               <td>
-                                <?php echo '<a href="editarDoctor.php?idMedico='.$row['idMedico'].'&nombre='.$row['Nombre'].'&apellido='.$row['Apellido'].'&usuario='.$row['Usuario'].'&especialidades='.$row['Especialidades'].'">Editar</a>'?><br>
+                                <?php echo '<a href="editarDoctores.php?idMedico='.$row['idMedico'].'&nombre='.$row['Nombre'].'&apellido='.$row['Apellido'].'&usuario='.$row['Usuario'].'&especialidades='.$row['Especialidades'].'">Editar</a>'?><br>
                                 <?php echo '<a class="peligro" href="eliminarDoctores.php?idMedico='.$row['idMedico'].'">Eliminar</a>'?>
                               </td>
                           </tr>
