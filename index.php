@@ -190,12 +190,12 @@
             <article class="col s3 center-align">
                 <img src="img/icons/sangre2.png" alt="">
                 <h3>MEDICINA GENERAL</h3>
-                <p>MANEJO DE PACIENTES CON ENFERMEDADES CRONICO-DEGENERATIVAS, PLANIFICACION FAMILIAR Y MAS PROCEDIMIENTOS.</p>
+                <p>Manejo de pacientes con enfermedades crónico-degenerativas, planificación familiar y más procedimientos.</p>
             </article>
             <article class="col s3 center-align">
                 <img src="img/icons/medicina2.png" alt="">
                 <h3>ANALISIS CLINICOS</h3>
-                <p>PRUEBAS DE SANGRE, ORINA, BIOMETRICA HEATICA,GLUCOSA,TRIGLISERIDOS,COVID, ENTRE OTROS.</p>
+                <p>Pruebas de sangre, orina, biométrica, hepática, glucosa, triglicéridos, covid, entre otros..</p>
             </article>
         </div>
         <div class="divider"></div>
