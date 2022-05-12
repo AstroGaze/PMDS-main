@@ -195,7 +195,7 @@
             <article class="col s3 center-align">
                 <img src="img/icons/medicina2.png" alt="">
                 <h3>ANALISIS CLINICOS</h3>
-                <p>Pruebas de sangre, orina, biométrica, hepática, glucosa, triglicéridos, covid, entre otros..</p>
+                <p>Pruebas de sangre, orina, biométrica, hepática, glucosa, triglicéridos, covid, entre otros.</p>
             </article>
         </div>
         <div class="divider"></div>
