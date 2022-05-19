@@ -1,16 +1,28 @@
 <?php
     require 'dbconfig.php';
+    if ($_SESSION['Rol'] == 5 or $_SESSION['Rol'] == 4 or $_SESSION['Rol'] == 3 or $_SESSION['Rol'] == 2 or $_SESSION['Rol'] == 1 ) {
     $error='';
     $pdo = getDB();
     $idUser=$_SESSION['myid'];
     if($_SESSION!=null){
         if($_SERVER["REQUEST_METHOD"] == "POST" and $idUser!=null){
+            $user = $_POST['idMedico'];
+            $name=$_POST['name'];
+            $lname=$_POST['lastName'];
+            $usuario=$_POST['usuario'];
+            $especialidad= $_POST['especialidad'];
+            $sql = 'call u157913818_PMDS.UpdateMedico(?,?,?,?,?)';
             //$del=$_POST['eliminarCita'];
 
             //$sql = 'call u157913818_PMDS.DelCita(?)';
-            //$stmt=$pdo->prepare($sql);
-            //$stmt->bindParam(1,$del,PDO::PARAM_INT);
-            //$stmt->execute();
+            $stmt=$pdo->prepare($sql);
+            $stmt->bindParam(1,$user,PDO::PARAM_INT);
+            $stmt->bindParam(2,$name,PDO::PARAM_STR,20);
+            $stmt->bindParam(3,$lname,PDO::PARAM_STR,20);
+            $stmt->bindParam(4,$usuario,PDO::PARAM_STR,20);
+            $stmt->bindParam(5,$especialidad,PDO::PARAM_INT);
+            $stmt->execute();
+            header("Location:".'editarDoctores.php?idMedico='.$user.'&nombre='.$name.'&apellido='.$lname.'&usuario='.$usuario.'&especialidades='.$especialidad);
         }
     }
 
@@ -48,15 +60,15 @@
             <div class="center-align">
                 <h2 class="h2">Editar Doctores</h2>
             </div>
-            <div class="row">
+            <div class="row container">
               <form class="col s12" method="POST">
                 <div class="row">
-                  <div class="input-field col s12 offset-m4 m4">
+                  <div class="input-field col s12 offset-m4 m4" id="medicoForm">
                     <?php 
                     if(isset($_GET['idMedico'])){
                       echo '
-                      <input id="disabled" value="'.$_GET['idMedico'].'" type="number" name="eliminarCita">
-                      <label for="disabled">Numero de Doctor</label>
+                      <input id="idMedico" value="'.$_GET['idMedico'].'" type="number" name="idMedico">
+                      <label for="idMedico">Numero de Doctor</label>
                       ';
                     }
                     else{
@@ -119,6 +131,7 @@
                   </div>
                 </div>
                 <button type="submit" class="btn"  name="Button">Editar</button>
+                <!-- <button type="submit" class="btn"  name="Button">Editar</button> -->
                 <a class="btn" href="verDoctores.php">Cancelar</a>
               </form>
             </div>
@@ -142,3 +155,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
+<?php
+  } else {
+    header("Location: login.php");
+  }
+ ?>

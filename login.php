@@ -21,6 +21,7 @@
       if($myUser==$row['Usuario'] and $myPass==$row['Contrasena']){
         #TODO: Esto es para el crecimiento posterior a la entrega del proyecto
         #Esto es para diferenciar las sessiones que hay entre la page
+        $_SESSION['Rol'] = $row['Especialidades'];
         $_SESSION['sessionname']='Doctor';
         $_SESSION['myusername']=$myUser;
         $_SESSION['myname']=$row['Nombre'];
@@ -135,6 +136,7 @@
         </footer>
         <script>
           pressed = true;
+          let minus = 6;
           function Btnpress() {
             if (pressed === true) {
               console.log("Hi")

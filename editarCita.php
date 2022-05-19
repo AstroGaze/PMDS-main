@@ -1,16 +1,28 @@
 <?php
     require 'dbconfig.php';
+    if ($_SESSION['Rol'] == 5 or $_SESSION['Rol'] == 4 or $_SESSION['Rol'] == 3 or $_SESSION['Rol'] == 2 or $_SESSION['Rol'] == 1 ) {
     $error='';
     $pdo = getDB();
     $idUser=$_SESSION['myid'];
     if($_SESSION!=null){
         if($_SERVER["REQUEST_METHOD"] == "POST" and $idUser!=null){
+            $user = $_POST['idCita'];
+            $correo = $_POST['correo'];
+            $fecha=$_POST['fecha'];
+            $hora= $_POST['hora'];
+            $medico = $_POST['medico'];
+            $sql = 'call u157913818_PMDS.UpdateCitas(?,?,?,?,?)';
             //$del=$_POST['eliminarCita'];
 
             //$sql = 'call u157913818_PMDS.DelCita(?)';
-            //$stmt=$pdo->prepare($sql);
-            //$stmt->bindParam(1,$del,PDO::PARAM_INT);
-            //$stmt->execute();
+            $stmt=$pdo->prepare($sql);
+            $stmt->bindParam(1,$correo,PDO::PARAM_STR,20);
+            $stmt->bindParam(2,$fecha,PDO::PARAM_STR);
+            $stmt->bindParam(3,$hora,PDO::PARAM_STR,20);
+            $stmt->bindParam(4,$medico,PDO::PARAM_INT);
+            $stmt->bindParam(5,$user,PDO::PARAM_INT);
+            $stmt->execute();
+            header("Location:".'editarCita.php?idCita='.$user.'&correo='.$correo.'&fecha='.$fecha.'&hora='.$hora.'&medico='.$medico);
         }
     }
 
@@ -48,14 +60,14 @@
             <div class="center-align">
                 <h2 class="h2">Editar cita</h2>
             </div>
-            <div class="row">
+            <div class="row container">
               <form class="col s12" method="POST">
                 <div class="row">
-                  <div class="input-field col s12 offset-m4 m4">
+                  <div class="input-field col s12 offset-m4 m4" id="citaForm">
                     <?php 
                     if(isset($_GET['idCita'])){
                       echo '
-                      <input id="disabled" value="'.$_GET['idCita'].'" type="number" name="eliminarCita">
+                      <input id="disabled" value="'.$_GET['idCita'].'" type="number" name="idCita">
                       <label for="disabled">Numero de Cliente</label>
                       ';
                     }
@@ -142,3 +154,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
+<?php
+  } else {
+    header("Location: login.php");
+  }
+ ?>

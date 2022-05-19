@@ -1,5 +1,6 @@
 <?php
     require 'dbconfig.php';
+    if ($_SESSION['Rol'] == 5 or $_SESSION['Rol'] == 4 or $_SESSION['Rol'] == 3 or $_SESSION['Rol'] == 2 or $_SESSION['Rol'] == 1 ) {
     if($_SESSION!=null){
       $error='';
       $pdo = getDB();
@@ -128,3 +129,8 @@
         </script>
     </body>
 </html>
+<?php
+  } else {
+    header("Location: login.php");
+  }
+ ?>

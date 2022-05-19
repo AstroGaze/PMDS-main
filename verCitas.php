@@ -1,5 +1,6 @@
 <?php
 require 'dbconfig.php';
+if ($_SESSION['Rol'] == 5 or $_SESSION['Rol'] == 4 or $_SESSION['Rol'] == 3 or $_SESSION['Rol'] == 2 or $_SESSION['Rol'] == 1 ) {
 $pdo = getDB();
 $idUser=$_SESSION['myid'];
 if($idUser!=null){
@@ -101,3 +102,8 @@ if($idUser!=null){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
 </html>
+<?php
+  } else {
+    header("Location: login.php");
+  }
+ ?>

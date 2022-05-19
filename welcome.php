@@ -1,5 +1,7 @@
 <?php
-   include('dbconfig.php');
+  include('dbconfig.php');
+  if ($_SESSION['Rol'] == 5 or $_SESSION['Rol'] == 4 or $_SESSION['Rol'] == 3 or $_SESSION['Rol'] == 2 or $_SESSION['Rol'] == 1 ) {
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,11 +35,18 @@
                     <p>Ingresar para ver las citas en espera.</p>
                     <a class="waves-effect color1 btn" href="verCitas.php">Ver Citas</a>
                 </div>
+                <?php 
+                  if ($_SESSION['Rol'] == 5) {
+
+        
+                ?>
                 <div class="card center-align">
                     <h5>REGISTRAR DOCTOR</h5>
                     <p>Ingresar informacion necesaria para dar de alta un Doctor.</p>
                     <a class="waves-effect color1 btn" href="agregarDoctor.php">AGREGAR</a>
                 </div>
+                <?php 
+                } ?>
                 <div class="card center-align">
                     <h5>AGENDAR CITAS</h5>
                     <p>Eleccion de para modificar, agendar, eliminar y cambiar citas.</p>
@@ -62,3 +71,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
 </html>
+ <?php
+  } else {
+    header("Location: login.php");
+  }
+ ?>

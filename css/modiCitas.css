@@ -23,3 +23,11 @@ main {
 a {
     color: #eeffff;
 }
+
+#medicoForm {
+    visibility: hidden;
+}
+
+#citaForm {
+    visibility: hidden;
+}

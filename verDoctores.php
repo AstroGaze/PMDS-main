@@ -1,5 +1,6 @@
 <?php
 require 'dbconfig.php';
+if ($_SESSION['Rol'] == 5 or $_SESSION['Rol'] == 4 or $_SESSION['Rol'] == 3 or $_SESSION['Rol'] == 2 or $_SESSION['Rol'] == 1 ) {
 $pdo = getDB();
 $idUser=$_SESSION['myid'];
 if($idUser!=null){
@@ -61,8 +62,8 @@ if($idUser!=null){
                               <td><?php echo htmlspecialchars($row['idMedico']) ?></td>
                               <td><?php echo htmlspecialchars($row['Nombre']); ?></td>
                               <td><?php echo htmlspecialchars($row['Apellido']); ?></td>
-						      <td><?php echo htmlspecialchars($row['Usuario']); ?></td>
-						      <td><?php echo htmlspecialchars($row['Especialidades']); ?></td>
+						                  <td><?php echo htmlspecialchars($row['Usuario']); ?></td>
+						                  <td><?php echo htmlspecialchars($row['Especialidades']); ?></td>
                               <td>
                                 <?php echo '<a href="editarDoctores.php?idMedico='.$row['idMedico'].'&nombre='.$row['Nombre'].'&apellido='.$row['Apellido'].'&usuario='.$row['Usuario'].'&especialidades='.$row['Especialidades'].'">Editar</a>'?><br>
                                 <?php echo '<a class="peligro" href="eliminarDoctores.php?idMedico='.$row['idMedico'].'">Eliminar</a>'?>
@@ -76,7 +77,7 @@ if($idUser!=null){
                   </table>
                 <br>
                 <br>
-                <a class="btn color1" href="agregarCitas.php">Agregar</a>
+                <a class="btn color1" href="agregarDoctor.php">Agregar</a>
               </div>
           </section>
         </main>
@@ -97,3 +98,8 @@ if($idUser!=null){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
 </html>
+<?php
+  } else {
+    header("Location: login.php");
+  }
+ ?>

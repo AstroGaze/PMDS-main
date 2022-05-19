@@ -48,10 +48,9 @@
               <a href="#" class="brand-logo">Punto medico de salud</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="sass.html">Inicio</a></li>
-                <li><a href="badges.html">Sobre nosotros</a></li>
-                <li><a href="collapsible.html">Consultorio</a></li>
-                <li><a href="collapsible.html">Contacto</a></li>
-                <li><a href="collapsible.html">Consultorio</a></li>
+                <li><a href="#sobreNoso">Sobre nosotros</a></li>
+                <li><a href="#espe">Consultorio</a></li>
+                <li><a href="#contancto">Contacto</a></li>
                 <!-- <li><a href="collapsible.html">Iniciar Sesion</a></li> -->
                 <li><a class="waves-effect waves-light btn" id="buttonIni" href="login.php">Iniciar Sesion</a></li>
               </ul>
@@ -172,7 +171,7 @@
     <!-- Abaut de la pagina -->
     <section >
         <article class="container center-align" id="sobreNoso">
-            <h2>SOBRE NOSOTROS</h2>
+            <h2 id = "sobreNoso">SOBRE NOSOTROS</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro unde sint labore animi deleniti? Cum dolore doloremque cumque recusandae, quos rerum architecto repellendus in iste iusto explicabo quis? Dolores, laboriosam.</p>
         </article>
         <div class="divider"></div>
@@ -209,7 +208,7 @@
 
     <!-- Contacto -->
     <section class="section">
-        <h2 class="center-align">CONTACTO</h2>
+        <h2 class="center-align" id="contancto">CONTACTO</h2>
         <div class="row container">
                 <form class="col s6" action="">
                     <div class="input-field">
