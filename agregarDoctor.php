@@ -30,6 +30,11 @@
                 break;
         }
     }
+    $miCita=array();
+    $sql = 'call u157913818_PMDS.getEspecialidad();';
+    $stmt=$pdo->prepare($sql);
+    /* $stmt->bindParam(1,$idUser,PDO::PARAM_INT); */
+    $stmt->execute();
   }
 ?>
 <!DOCTYPE html>
@@ -91,8 +96,16 @@
                         </div>
                         <div class="row">
                           <div class="input-field col s6">
-                            <input id="password" type="number" class="validate" name="especialidad">
-                            <label for="password">Especialidad</label>
+                            <select name="especialidad">
+                              <?php
+                                echo '<option value="" disabled selected>Escoger especialidad o Rol del Doctor</option>';
+                                while ($row = $stmt->fetch()): ?>
+                                  <option value="<?php echo htmlspecialchars($row['idEspecialidad']);?>"><?php echo htmlspecialchars($row['Especialidad']); ?></option>
+                                  <?php endwhile;
+                                    $stmt->closeCursor();
+                                  ?>
+                            </select>
+                            <label>Especialidad o Rol</label>
                           </div>
                         </div>
                         <button type="submit" class="btn" name="Button" value="agregar">Agregar</button>
@@ -117,11 +130,11 @@
           </div>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-          document.addEventListener("DOMContentLoaded", function(){
-            const myTabs = document.querySelector('.tabs');
-            M.Tabs.init(myTabs, {});
-          })
+        <script type="text/javascript">
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+          });
         </script>
     </body>
 </html>

@@ -59,7 +59,7 @@ if($idUser!=null){
                       <?php if($_SESSION!=null):
                          while ($row = $stmt->fetch()): ?>
                           <tr>
-                              <td><?php echo htmlspecialchars($row['idMedico']) ?></td>
+                              <td><?php echo htmlspecialchars($row['idMedico']); ?></td>
                               <td><?php echo htmlspecialchars($row['Nombre']); ?></td>
                               <td><?php echo htmlspecialchars($row['Apellido']); ?></td>
 						                  <td><?php echo htmlspecialchars($row['Usuario']); ?></td>

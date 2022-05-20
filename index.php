@@ -28,6 +28,12 @@
         die("Error occurred:" . $e->getMessage());
     }
   }
+    // execute the stored procedure
+    $miCita=array();
+    $sql = 'call u157913818_PMDS.getDoctores();';
+    $stmt=$pdo->prepare($sql);
+    /* $stmt->bindParam(1,$idUser,PDO::PARAM_INT); */
+    $stmt->execute();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,8 +153,17 @@
             </div>
             <div class="row form">
                 <div class="input-field col s12">
-                    <input id="MedicoEspe" type="number" class="validate" name="medico">
-                    <label for="MedicEspe">Medico Especialista</label>
+                    <select name="medico">
+                        <?php 
+                            echo '<option value="" disabled selected>Choose your option</option>';
+                            while ($row = $stmt->fetch()): ?>
+                                <!-- <option value="" disabled selected>Choose your option</option> -->
+                                <option value="<?php echo htmlspecialchars($row['idMedico']);?>"><?php echo 'Dr. '.htmlspecialchars($row['Nombre']); ?></option>
+                                <?php endwhile;
+                                    $stmt->closeCursor();
+                                ?>
+                        </select>
+                        <label>Doctor</label>
                 </div>
             </div>
             <div class="row form">
@@ -255,5 +270,11 @@
       </footer>
    <!--Scrips-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+        });
+    </script>
 </body>
 </html>

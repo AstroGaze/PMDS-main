@@ -31,6 +31,11 @@
                 break;
         }
     }
+    $miCita=array();
+    $sql = 'call u157913818_PMDS.getDoctores();';
+    $stmt=$pdo->prepare($sql);
+    /* $stmt->bindParam(1,$idUser,PDO::PARAM_INT); */
+    $stmt->execute();
   }
 ?>
 <!DOCTYPE html>
@@ -64,7 +69,6 @@
               <h4 class = "center-align">CREAR CITAS</h4>
               <br>
               <br>
-                </div>
                 <!-- Agregar cita -->
                   <div id="Agregar">
                     <div class="row">
@@ -81,10 +85,18 @@
                         </div>
                         <div class="row">
                           <div class="input-field col s4">
-                            <input id="disabled" type="number" name="medico">
-                            <label for="disabled">Medico</label>
+                            <select name="medico">
+                              <?php
+                                echo '<option value="" disabled selected>Choose your option</option>';
+                                while ($row = $stmt->fetch()): ?>
+                                  <option value="<?php echo htmlspecialchars($row['idMedico']);?>"><?php echo 'Dr. '.htmlspecialchars($row['Nombre']); ?></option>
+                                  <?php endwhile;
+                                    $stmt->closeCursor();
+                                  ?>
+                            </select>
+                            <label>Doctor</label>
                           </div>
-                          <div class="input-field col s7">
+                          <div class="input-field col s4">
                             <input id="disabled" type="email" class="validate" name="Email">
                             <label for="disabled">Correo Electronico</label>
                           </div>
@@ -103,7 +115,6 @@
                       </form>
                     </div>
                   </div>
-                </div>
           </section>
         </main>
         <footer class="page-footer color1">
@@ -121,12 +132,13 @@
           </div>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-          document.addEventListener("DOMContentLoaded", function(){
-            const myTabs = document.querySelector('.tabs');
-            M.Tabs.init(myTabs, {});
-          })
+        <script type="text/javascript">
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+          });
         </script>
+        
     </body>
 </html>
 <?php
