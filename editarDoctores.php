@@ -24,6 +24,11 @@
             $stmt->execute();
             header("Location:".'editarDoctores.php?idMedico='.$user.'&nombre='.$name.'&apellido='.$lname.'&usuario='.$usuario.'&especialidades='.$especialidad);
         }
+        $miCita=array();
+        $sql = 'call u157913818_PMDS.getEspecialidad();';
+        $stmt=$pdo->prepare($sql);
+        /* $stmt->bindParam(1,$idUser,PDO::PARAM_INT); */
+        $stmt->execute();
     }
 
 
@@ -117,17 +122,16 @@
                         ?>
                   </div>
                   <div class="input-field col s12 m6">
-                        <?php 
-                            if(isset($_GET['especialidades'])){
-                              echo '
-                                <input id="disabled" value="'.$_GET['especialidades'].'" type="number" name="especialidad">
-                                <label for="disabled">Especialidad</label>
-                              ';
-                            }
-                            else{
-                              echo '<h2 class="peligro">Ocurrio un error, por favor, cierre sesion</h2>';
-                        }
-                        ?>
+                    <select name="especialidad">
+                        <?php
+                          echo '<option value="'.$_GET['especialidades'].'" selected>Escoger nueva especialidad o Rol</option>';
+                          while ($row = $stmt->fetch()): ?>
+                            <option value="<?php echo htmlspecialchars($row['idEspecialidad']);?>"><?php echo htmlspecialchars($row['Especialidad']); ?></option>
+                            <?php endwhile;
+                              $stmt->closeCursor();
+                            ?>
+                      </select>
+                      <label>Doctor</label>
                   </div>
                 </div>
                 <button type="submit" class="btn"  name="Button">Editar</button>
@@ -153,6 +157,12 @@
           </div>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript">
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+          });
+        </script>
 </body>
 </html>
 <?php
