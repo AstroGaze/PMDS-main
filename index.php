@@ -53,7 +53,6 @@
             <div class="nav-wrapper">
               <a href="#" class="brand-logo">Punto medico de salud</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Inicio</a></li>
                 <li><a href="#sobreNoso">Sobre nosotros</a></li>
                 <li><a href="#espe">Consultorio</a></li>
                 <li><a href="#contancto">Contacto</a></li>
@@ -225,7 +224,7 @@
     <section class="section">
         <h2 class="center-align" id="contancto">CONTACTO</h2>
         <div class="row container">
-                <form class="col s6" action="">
+                <form class="col s6" action="mail.php">
                     <div class="input-field">
                         <input type="text"  id="Name" class="validate">
                         <label for="icon_prefix">NOMBRE</label>

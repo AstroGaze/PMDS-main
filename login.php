@@ -88,7 +88,7 @@
                           <br>
                           <button class="btn color1" type="submit" name="ingresar">Ingresar</button>
                         </form>
-                        <button class="btn color1 btnm" type="submit" name="ingresar" onclick="Btnpress()">Administrador</button>
+                        <!-- <button class="btn color1 btnm" type="submit" name="ingresar" onclick="Btnpress()">Administrador</button> -->
                     </div>
                   </div>
                   <div class="colorOpa center-align" id="iniciarSesionAdmin">
